@@ -1,0 +1,256 @@
+/* Apple-Style Design System */
+:root {
+    --bg-color: #000000;
+    --card-bg: #1d1d1f;
+    --text-primary: #f5f5f7;
+    --text-secondary: #86868b;
+    --accent-blue: #2997ff;
+    --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --card-radius: 20px;
+    --transition: cubic-bezier(0.4, 0, 0.2, 1) 0.6s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-blue);
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(40px, 8vw, 80px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: clamp(32px, 5vw, 48px);
+    margin-bottom: 40px;
+}
+
+p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Layout Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+/* Nav */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-size: 14px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.hero-subtitle {
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 1s forwards 0.2s;
+}
+
+.hero h1 {
+    max-width: 900px;
+    opacity: 0;
+    animation: fadeUp 1s forwards 0.4s;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    opacity: 0;
+    animation: fadeUp 1s forwards 0.6s;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--text-primary);
+    color: var(--bg-color);
+    border-radius: 980px;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+    opacity: 0;
+    animation: fadeUp 1s forwards 0.8s;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    color: var(--bg-color);
+}
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    padding: 40px;
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.card-date {
+    font-size: 14px;
+    color: var(--accent-blue);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.card ul {
+    list-style-position: inside;
+    color: var(--text-secondary);
+    margin-top: 20px;
+}
+
+.card li {
+    margin-bottom: 8px;
+}
+
+/* Tech Stack Chips */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.chip {
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--text-primary);
+}
+
+/* Contact */
+.footer {
+    background: var(--card-bg);
+    padding: 60px 0 20px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
